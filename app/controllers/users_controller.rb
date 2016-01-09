@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   def index
-    @posts = current_user.fb_posts if current_user
+    if current_user
+      @posts = current_user.fb_posts(params[:page])
+    end
   end
 end

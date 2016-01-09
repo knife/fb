@@ -1,0 +1,12 @@
+- if @posts
+  %h2
+    Your posts:
+  - @posts.each do |post|
+    %p
+      = post['story'] || post['message'] || 'No title'
+      %strong
+        = post['likes']['summary']['total_count']
+        Likes
+
+  = link_to 'Previous', url_for(:page => @posts.previous_page_params)
+  = link_to 'Next', url_for(:page => @posts.next_page_params)
