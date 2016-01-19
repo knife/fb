@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
     if page
       fb.get_page(page)
     else
-      fb.get_connections('me', 'feed?fields=id,story,message,likes.summary(true)')
+      fb.get_connections('me', 'posts?fields=id,story,message,likes.summary(true)')
     end
   end
 
